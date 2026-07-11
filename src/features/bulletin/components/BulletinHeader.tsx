@@ -2,7 +2,11 @@ import { MARKET_COLUMNS } from '../bulletin.constants';
 import styles from './bulletin.module.scss';
 
 const BulletinHeader = () => (
-  <div className={`${styles.grid} ${styles.header}`} role="row">
+  <div
+    className={`${styles.grid} ${styles.header}`}
+    role="row"
+    aria-rowindex={1}
+  >
     <div className={styles.eventHeader} role="columnheader">
       Etkinlik
     </div>

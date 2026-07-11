@@ -73,10 +73,10 @@ describe('BulletinRow render isolation', () => {
     render(
       <Provider store={store}>
         <Profiler id="first-event" onRender={handleRender}>
-          <BulletinRow event={firstEvent} />
+          <BulletinRow event={firstEvent} rowIndex={2} />
         </Profiler>
         <Profiler id="second-event" onRender={handleRender}>
-          <BulletinRow event={secondEvent} />
+          <BulletinRow event={secondEvent} rowIndex={3} />
         </Profiler>
       </Provider>
     );

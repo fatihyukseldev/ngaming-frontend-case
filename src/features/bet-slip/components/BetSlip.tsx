@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { selectCombinedOdd, selectSelections } from '../betSlip.selectors';
 import { clearBetSlip } from '../betSlip.slice';
@@ -10,6 +10,7 @@ const BetSlip = () => {
   const selections = useAppSelector(selectSelections);
   const combinedOdd = useAppSelector(selectCombinedOdd);
   const [isOpen, setIsOpen] = useState(false);
+  const mobileSummaryRef = useRef<HTMLButtonElement>(null);
 
   const handleBetSlipClear = () => {
     dispatch(clearBetSlip());
@@ -21,6 +22,7 @@ const BetSlip = () => {
 
   const handleBetSlipClose = () => {
     setIsOpen(false);
+    mobileSummaryRef.current?.focus();
   };
 
   return (
@@ -33,7 +35,11 @@ const BetSlip = () => {
           <h2 id="bet-slip-title">Bahis Kuponu</h2>
           <div className={styles.headerActions}>
             {selections.length > 0 && (
-              <button type="button" onClick={handleBetSlipClear}>
+              <button
+                type="button"
+                aria-label="Bahis kuponunu temizle"
+                onClick={handleBetSlipClear}
+              >
                 Temizle
               </button>
             )}
@@ -72,6 +78,7 @@ const BetSlip = () => {
 
       <button
         type="button"
+        ref={mobileSummaryRef}
         className={styles.mobileSummary}
         aria-expanded={isOpen}
         aria-controls="bet-slip-content"

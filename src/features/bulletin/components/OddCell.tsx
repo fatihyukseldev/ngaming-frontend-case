@@ -21,7 +21,13 @@ const OddCell = ({
   const odd = outcome ? parseOdd(outcome.O) : undefined;
 
   if (!outcome || odd === undefined) {
-    return <div className={styles.oddCell} role="cell" />;
+    return (
+      <div
+        className={styles.oddCell}
+        role="cell"
+        aria-label={`${eventName}, ${column.label} oranı mevcut değil`}
+      />
+    );
   }
 
   return (

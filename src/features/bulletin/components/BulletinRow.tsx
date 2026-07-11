@@ -10,9 +10,10 @@ import OddCell from './OddCell';
 
 type BulletinRowProps = {
   event: BetEvent;
+  rowIndex: number;
 };
 
-const BulletinRow = ({ event }: BulletinRowProps) => {
+const BulletinRow = ({ event, rowIndex }: BulletinRowProps) => {
   const dispatch = useAppDispatch();
   const activeSelection = useAppSelector((state) =>
     selectSelectionByEventId(state, event.NID)
@@ -58,7 +59,11 @@ const BulletinRow = ({ event }: BulletinRowProps) => {
         <span>{event.DAY}</span>
         <strong>{event.LN}</strong>
       </div>
-      <div className={`${styles.grid} ${styles.eventLine}`} role="row">
+      <div
+        className={`${styles.grid} ${styles.eventLine}`}
+        role="row"
+        aria-rowindex={rowIndex}
+      >
         <div className={styles.eventName} role="cell">
           <strong>{event.C}</strong>
           <span>{event.T}</span>

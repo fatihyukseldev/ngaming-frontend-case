@@ -56,7 +56,12 @@ const Bulletin = () => {
       <h2 className={styles.title} id="bulletin-title">
         Bahis Bülteni
       </h2>
-      <div className={styles.scrollArea} ref={scrollAreaRef} tabIndex={0}>
+      <div
+        className={styles.scrollArea}
+        ref={scrollAreaRef}
+        aria-label="Bahis bülteni tablosu"
+        tabIndex={0}
+      >
         <div
           className={styles.table}
           role="table"
@@ -76,7 +81,7 @@ const Bulletin = () => {
                   className={styles.virtualRow}
                   style={{ transform: `translateY(${virtualRow.start}px)` }}
                 >
-                  <BulletinRow event={event} />
+                  <BulletinRow event={event} rowIndex={virtualRow.index + 2} />
                 </div>
               );
             })}

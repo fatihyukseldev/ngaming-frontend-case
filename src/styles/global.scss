@@ -48,6 +48,12 @@ button {
   padding: 0.625rem 1rem;
 }
 
+button:focus-visible,
+[tabindex='0']:focus-visible {
+  outline: 3px solid #155d35;
+  outline-offset: 2px;
+}
+
 ul,
 ol {
   list-style: none;
