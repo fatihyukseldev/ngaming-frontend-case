@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { useAppDispatch, useAppSelector } from '../../../app/hooks';
 import { selectSelectionByEventId } from '../../bet-slip/betSlip.selectors';
 import { toggleSelection } from '../../bet-slip/betSlip.slice';
@@ -86,4 +87,4 @@ const BulletinRow = ({ event }: BulletinRowProps) => {
   );
 };
 
-export default BulletinRow;
+export default memo(BulletinRow);

@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useVirtualizer } from '@tanstack/react-virtual';
+import { useEffect, useRef } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { loadBulletin } from './bulletin.slice';
 import BulletinHeader from './components/BulletinHeader';
@@ -10,6 +11,13 @@ const Bulletin = () => {
   const events = useAppSelector((state) => state.bulletin.events);
   const status = useAppSelector((state) => state.bulletin.status);
   const error = useAppSelector((state) => state.bulletin.error);
+  const scrollAreaRef = useRef<HTMLDivElement>(null);
+  const rowVirtualizer = useVirtualizer({
+    count: events.length,
+    getScrollElement: () => scrollAreaRef.current,
+    estimateSize: () => 77,
+    overscan: 5,
+  });
 
   useEffect(() => {
     const request = dispatch(loadBulletin());
@@ -47,12 +55,31 @@ const Bulletin = () => {
       <h2 className={styles.title} id="bulletin-title">
         Bahis Bülteni
       </h2>
-      <div className={styles.scrollArea} tabIndex={0}>
-        <div className={styles.table} role="table">
+      <div className={styles.scrollArea} ref={scrollAreaRef} tabIndex={0}>
+        <div
+          className={styles.table}
+          role="table"
+          aria-rowcount={events.length + 1}
+        >
           <BulletinHeader />
-          {events.map((event) => (
-            <BulletinRow key={event.NID} event={event} />
-          ))}
+          <div
+            className={styles.virtualBody}
+            style={{ height: rowVirtualizer.getTotalSize() }}
+          >
+            {rowVirtualizer.getVirtualItems().map((virtualRow) => {
+              const event = events[virtualRow.index];
+
+              return (
+                <div
+                  key={event.NID}
+                  className={styles.virtualRow}
+                  style={{ transform: `translateY(${virtualRow.start}px)` }}
+                >
+                  <BulletinRow event={event} />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
