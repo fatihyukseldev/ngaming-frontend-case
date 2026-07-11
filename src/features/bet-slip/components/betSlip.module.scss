@@ -23,8 +23,19 @@
   font-size: 1rem;
 }
 
-.header button {
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerActions button {
   padding: 0.35rem 0.5rem;
+}
+
+.closeButton,
+.mobileSummary {
+  display: none;
 }
 
 .emptyState {
@@ -75,4 +86,63 @@
   padding: 0.875rem 0.75rem;
   background: #f3f3f3;
   font-size: 0.9375rem;
+}
+
+@media (max-width: 768px) {
+  .betSlip {
+    position: fixed;
+    z-index: 10;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+
+  .content {
+    display: none;
+    max-height: calc(100vh - 56px);
+    overflow: hidden;
+  }
+
+  .open .content {
+    display: block;
+  }
+
+  .header {
+    min-height: 52px;
+  }
+
+  .closeButton {
+    display: block;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 0;
+    font-size: 1.25rem;
+  }
+
+  .list {
+    max-height: calc(100vh - 210px);
+  }
+
+  .mobileSummary {
+    display: flex;
+    width: 100%;
+    min-height: 56px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.625rem 1rem;
+    border: 0;
+    border-radius: 0;
+    background: #1f7a45;
+    color: #ffffff;
+  }
+
+  .mobileSummary:focus-visible {
+    outline: 3px solid #f4b400;
+    outline-offset: -3px;
+  }
 }

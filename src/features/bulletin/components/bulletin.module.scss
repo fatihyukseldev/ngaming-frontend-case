@@ -136,3 +136,14 @@
   outline: 3px solid #155d35;
   outline-offset: -3px;
 }
+
+@media (max-width: 768px) {
+  .scrollArea {
+    height: calc(100vh - 10.5rem);
+    min-height: 320px;
+  }
+
+  .table {
+    font-size: 0.8125rem;
+  }
+}

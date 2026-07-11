@@ -12,6 +12,7 @@ const Bulletin = () => {
   const status = useAppSelector((state) => state.bulletin.status);
   const error = useAppSelector((state) => state.bulletin.error);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line react-hooks/incompatible-library -- TanStack Virtual owns mutable measurements.
   const rowVirtualizer = useVirtualizer({
     count: events.length,
     getScrollElement: () => scrollAreaRef.current,

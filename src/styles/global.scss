@@ -83,6 +83,21 @@ ol {
   align-items: start;
 }
 
+@media (max-width: 768px) {
+  .app {
+    padding: 0.75rem 0.75rem 4.5rem;
+  }
+
+  .app h1 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+  }
+
+  .appContent {
+    display: block;
+  }
+}
+
 .app p {
   color: #555555;
 }
