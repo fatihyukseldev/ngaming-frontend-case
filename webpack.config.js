@@ -37,6 +37,7 @@ module.exports = {
             loader: 'css-loader',
             options: {
               modules: {
+                namedExport: false,
                 localIdentName: isDev
                   ? '[name]__[local]--[hash:base64:5]'
                   : '[hash:base64:6]',
@@ -102,7 +103,7 @@ module.exports = {
   ].filter(Boolean),
 
   devServer: {
-    port: 3000,
+    port: 3001,
     hot: true,
     historyApiFallback: true,
     compress: true,

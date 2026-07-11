@@ -1,8 +1,11 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import { loadBulletin } from './bulletin.slice';
+import BulletinHeader from './components/BulletinHeader';
+import BulletinRow from './components/BulletinRow';
+import styles from './components/bulletin.module.scss';
 
-const BulletinSummary = () => {
+const Bulletin = () => {
   const dispatch = useAppDispatch();
   const events = useAppSelector((state) => state.bulletin.events);
   const status = useAppSelector((state) => state.bulletin.status);
@@ -39,17 +42,21 @@ const BulletinSummary = () => {
     );
   }
 
-  const firstEvent = events[0];
-
   return (
-    <section aria-labelledby="bulletin-title">
-      <h2 id="bulletin-title">Bahis Bülteni</h2>
-      <p>{events.length} etkinlik yüklendi.</p>
-      <p>
-        İlk etkinlik: {firstEvent.C} {firstEvent.N}
-      </p>
+    <section className={styles.bulletin} aria-labelledby="bulletin-title">
+      <h2 className={styles.title} id="bulletin-title">
+        Bahis Bülteni
+      </h2>
+      <div className={styles.scrollArea} tabIndex={0}>
+        <div className={styles.table} role="table">
+          <BulletinHeader />
+          {events.map((event) => (
+            <BulletinRow key={event.NID} event={event} />
+          ))}
+        </div>
+      </div>
     </section>
   );
 };
 
-export default BulletinSummary;
+export default Bulletin;

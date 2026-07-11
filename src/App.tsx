@@ -1,10 +1,10 @@
-import BulletinSummary from './features/bulletin/BulletinSummary';
+import Bulletin from './features/bulletin/Bulletin';
 
 const App = () => {
   return (
     <main className="app">
       <h1>NGAMING</h1>
-      <BulletinSummary />
+      <Bulletin />
     </main>
   );
 };

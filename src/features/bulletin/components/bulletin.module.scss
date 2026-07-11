@@ -1,0 +1,91 @@
+.bulletin {
+  width: 100%;
+  min-width: 0;
+}
+
+.title {
+  margin-bottom: 0.75rem;
+  font-size: 1.25rem;
+}
+
+.scrollArea {
+  width: 100%;
+  overflow-x: auto;
+  border: 1px solid #9b9b9b;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table {
+  min-width: 1042px;
+  color: #202020;
+  font-family: Arial, sans-serif;
+  font-size: 0.8125rem;
+  text-align: left;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 360px 92px 54px repeat(8, minmax(61px, 1fr)) 48px;
+}
+
+.grid > div {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid #b7b7b7;
+}
+
+.grid > div:last-child {
+  border-right: 0;
+}
+
+.header {
+  min-height: 36px;
+  border-bottom: 1px solid #8f8f8f;
+  background: #eeeeee;
+  font-weight: 700;
+}
+
+.eventHeader {
+  justify-content: flex-start !important;
+  padding: 0 0.75rem;
+}
+
+.bulletinRow {
+  border-bottom: 1px solid #9b9b9b;
+}
+
+.bulletinRow:last-child {
+  border-bottom: 0;
+}
+
+.eventMeta {
+  display: flex;
+  min-height: 28px;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-bottom: 1px solid #c5c5c5;
+  background: #f6f6f6;
+}
+
+.eventLine {
+  min-height: 48px;
+}
+
+.eventName {
+  justify-content: flex-start !important;
+  gap: 0.35rem;
+  padding: 0 0.75rem;
+  white-space: nowrap;
+}
+
+.commentsCell {
+  color: #555555;
+}
+
+.oddCell:empty {
+  background: #fafafa;
+}
