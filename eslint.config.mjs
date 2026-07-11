@@ -39,6 +39,7 @@ export default [
       ...typescriptPlugin.configs.recommended.rules,
       ...reactPlugin.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
+      'no-undef': 'off',
       'react/react-in-jsx-scope': 'off',
     },
     settings: {
