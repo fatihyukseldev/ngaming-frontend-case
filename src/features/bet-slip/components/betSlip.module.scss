@@ -1,0 +1,78 @@
+.betSlip {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  border: 1px solid #9b9b9b;
+  background: #ffffff;
+  color: #202020;
+  font-size: 0.8125rem;
+}
+
+.header {
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid #b7b7b7;
+  background: #eeeeee;
+}
+
+.header h2 {
+  font-size: 1rem;
+}
+
+.header button {
+  padding: 0.35rem 0.5rem;
+}
+
+.emptyState {
+  padding: 1rem;
+  color: #555555;
+  line-height: 1.45;
+}
+
+.list {
+  max-height: calc(100vh - 190px);
+  overflow-y: auto;
+}
+
+.item {
+  display: grid;
+  gap: 0.35rem;
+  padding: 0.75rem;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+.itemHeader,
+.selectionDetails,
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.itemHeader strong {
+  line-height: 1.3;
+}
+
+.removeButton {
+  flex: 0 0 32px;
+  min-height: 32px;
+  padding: 0;
+  border-color: #777777;
+  color: #333333;
+  font-size: 1.25rem;
+}
+
+.item small {
+  color: #666666;
+}
+
+.total {
+  padding: 0.875rem 0.75rem;
+  background: #f3f3f3;
+  font-size: 0.9375rem;
+}

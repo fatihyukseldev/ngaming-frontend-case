@@ -1,5 +1,5 @@
 import type { BetEvent } from './bulletin.types';
-import { getOutcome } from './bulletin.utils';
+import { getOutcome, parseOdd } from './bulletin.utils';
 
 const event: BetEvent = {
   C: '2002',
@@ -42,4 +42,17 @@ describe('getOutcome', () => {
   it('returns undefined when the outcome is unavailable', () => {
     expect(getOutcome(event, '1', '2')).toBeUndefined();
   });
+});
+
+describe('parseOdd', () => {
+  it('converts a valid odd string to a number', () => {
+    expect(parseOdd('6.71')).toBe(6.71);
+  });
+
+  it.each(['', 'invalid', '0', '-1', 'Infinity'])(
+    'returns undefined for malformed odd value %s',
+    (odd) => {
+      expect(parseOdd(odd)).toBeUndefined();
+    }
+  );
 });

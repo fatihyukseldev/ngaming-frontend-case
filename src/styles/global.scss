@@ -76,6 +76,13 @@ ol {
   letter-spacing: 0.04em;
 }
 
+.appContent {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 1rem;
+  align-items: start;
+}
+
 .app p {
   color: #555555;
 }
