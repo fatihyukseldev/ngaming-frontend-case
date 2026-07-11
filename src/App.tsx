@@ -1,8 +1,9 @@
 const App = () => {
   return (
-    <div className="app">
-      <h1>nGaming</h1>
-    </div>
+    <main className="app">
+      <h1>NGAMING</h1>
+      <p>Bahis bülteni hazırlanıyor.</p>
+    </main>
   );
 };
 

@@ -7,16 +7,16 @@
 }
 
 :root {
-  --color-bg: #0f0f0f;
-  --color-text: #ffffff;
-  --color-primary: #6c63ff;
+  --color-bg: #f4f4f4;
+  --color-surface: #ffffff;
+  --color-text: #252525;
+  --color-primary: #1f7a45;
   --font-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
     Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
 }
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
 }
 
 body {
@@ -24,8 +24,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  min-width: 320px;
 }
 
 img,
@@ -54,6 +53,20 @@ ol {
 .app {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   align-items: center;
   justify-content: center;
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.app h1 {
+  color: var(--color-primary);
+  font-size: clamp(1.75rem, 6vw, 3rem);
+  letter-spacing: 0.04em;
+}
+
+.app p {
+  color: #555555;
 }

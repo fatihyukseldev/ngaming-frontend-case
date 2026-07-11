@@ -30,7 +30,29 @@ module.exports = {
         use: 'babel-loader',
       },
       {
+        test: /\.module\.scss$/,
+        use: [
+          isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                localIdentName: isDev
+                  ? '[name]__[local]--[hash:base64:5]'
+                  : '[hash:base64:6]',
+              },
+              sourceMap: isDev,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: isDev },
+          },
+        ],
+      },
+      {
         test: /\.scss$/,
+        exclude: /\.module\.scss$/,
         use: [
           isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           {
@@ -84,7 +106,7 @@ module.exports = {
     hot: true,
     historyApiFallback: true,
     compress: true,
-    open: true,
+    open: false,
     static: {
       directory: path.resolve(__dirname, 'public'),
     },
