@@ -11,6 +11,18 @@ export default [
   },
   eslint.configs.recommended,
   {
+    files: ['*.config.js'],
+    languageOptions: {
+      sourceType: 'commonjs',
+      globals: {
+        __dirname: 'readonly',
+        module: 'readonly',
+        process: 'readonly',
+        require: 'readonly',
+      },
+    },
+  },
+  {
     files: ['src/**/*.{ts,tsx}'],
     languageOptions: {
       parser: typescriptParser,
@@ -40,6 +52,7 @@ export default [
       ...reactPlugin.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       'no-undef': 'off',
+      'no-console': 'error',
       'react/react-in-jsx-scope': 'off',
     },
     settings: {

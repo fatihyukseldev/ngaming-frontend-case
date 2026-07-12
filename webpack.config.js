@@ -25,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: 'babel-loader',
       },
@@ -45,6 +45,7 @@ module.exports = {
               sourceMap: isDev,
             },
           },
+          { loader: 'postcss-loader' },
           {
             loader: 'sass-loader',
             options: { sourceMap: isDev },
@@ -60,6 +61,7 @@ module.exports = {
             loader: 'css-loader',
             options: { sourceMap: isDev },
           },
+          { loader: 'postcss-loader' },
           {
             loader: 'sass-loader',
             options: { sourceMap: isDev },
@@ -71,6 +73,7 @@ module.exports = {
         use: [
           isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
           { loader: 'css-loader', options: { sourceMap: isDev } },
+          { loader: 'postcss-loader' },
         ],
       },
       {
